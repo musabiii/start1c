@@ -64,9 +64,18 @@ fn read_base_list() {
   let file = fs::File::open(base_list).expect("cannot open file");
   let file = BufReader::new(file);
   for line in file.lines() {
-      print!("\n{}", line.unwrap());
+      // print!("\n{:?}", line.unwrap().find('='));
+      print!("\n{:?}", line.unwrap());
+
+
+
+      if (line.unwrap().as_ref().contains("Connect=File")) {
+        // print!("\n contain {:?}",line.unwrap());
+      }
+      // print!("\n{:?}",line);
       // line.find("=")
-      print!("{}",line.split("="));
+      // print_type_of(line);
+      // print!("{}",line.split("="));
   }
 
   // let contents = fs::read_to_string(base_list)
